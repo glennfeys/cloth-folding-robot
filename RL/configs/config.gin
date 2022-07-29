@@ -1,0 +1,103 @@
+# Output and input directories setup
+train_loop.unity_file=None
+train_loop.unity_log_file="./"
+
+# Resulting model params, used to configure the train loop and model saving
+train_loop.total_timesteps=15000
+train_loop.model_folder="./models/grab_cloth_2/"
+train_loop.save_name="grab_cloth_2_3"
+
+# Config for single stage training (i.e. using --single)
+
+# Output and input directories setup
+single_stage_training.unity_file=None
+single_stage_training.unity_log_file="./"
+
+# model params for
+single_stage_training.total_timesteps=10000
+single_stage_training.model_folder="./models/fold_1/"
+single_stage_training.save_name="dqn_fold_1_local_40K_new_reward"
+
+
+# Config for chained multi-step training
+
+# define the observation space, filename to load from,
+# and other parameters to evaluate and train the individual tasks
+
+# grabcloth1
+# evaluation params for trained model
+eval_grabcloth1.observation_range=[(0, 4), (2036, 2037)]
+eval_grabcloth1.load_name="models/grab_cloth_1/static/dqn_grab_cloth_1_7.zip"
+
+# training params
+train_grabcloth1.observation_range=[(0, 4), (2036, 2037)]
+train_grabcloth1.verbose=1
+train_grabcloth1.gamma=0.89
+train_grabcloth1.batch_size=2048
+train_grabcloth1.buffer_size=1000
+train_grabcloth1.learning_starts=2000
+train_grabcloth1.target_update_interval=1000
+train_grabcloth1.learning_rate=0.001
+train_grabcloth1.exploration_fraction=0.75
+train_grabcloth1.exploration_initial_eps=1
+train_grabcloth1.exploration_final_eps=0.05
+train_grabcloth1.tensorboard_log="./tensorboard_logs"
+
+# fold1
+# evaluation params for trained model
+eval_fold1.observation_range=[(0, 2036)]
+eval_fold1.load_name="models/fold_1/chained/dqn_fold_1_200K_v1_13.zip"
+
+# training params
+train_fold1.observation_range=[(0, 2036)]
+train_fold1.verbose=1
+train_fold1.gamma=0.9
+train_fold1.batch_size=2048
+train_fold1.buffer_size=1000
+train_fold1.learning_starts=25000
+train_fold1.learning_rate=0.005
+train_fold1.exploration_fraction=0.75
+train_fold1.exploration_initial_eps=1
+train_fold1.exploration_final_eps=0.05
+train_fold1.target_update_interval=4096
+train_fold1.tensorboard_log="./tensorboard_logs"
+
+
+# grabcloth2
+# evaluation params for trained model
+eval_grabcloth2.observation_range=[(0, 4)]
+eval_grabcloth2.load_name="models/grab_cloth_2/chained/grab_cloth_2_3.zip"
+
+# training params
+train_grabcloth2.observation_range=[(0, 4)]
+train_grabcloth2.verbose=1
+train_grabcloth2.gamma=0.9
+train_grabcloth2.batch_size=2048
+train_grabcloth2.buffer_size=25000
+train_grabcloth2.learning_starts=2000
+train_grabcloth2.buffer_size=1000
+train_grabcloth2.learning_rate=0.002
+train_grabcloth2.exploration_fraction=0.5
+train_grabcloth2.exploration_initial_eps=0.9
+train_grabcloth2.exploration_final_eps=0.05
+train_grabcloth2.target_update_interval=4096
+train_grabcloth2.tensorboard_log="./tensorboard_logs"
+
+# fold2
+# evaluation params for trained model
+eval_fold2.observation_range=[(0, 2036)]
+eval_fold2.load_name="models/fold_2/chained/best_modelv2_1.zip"
+
+# training params
+train_fold2.observation_range=[(0, 2036)]
+train_fold2.verbose=1
+train_fold2.gamma=0.9
+train_fold2.batch_size=2048
+train_fold2.buffer_size=25000
+train_fold2.learning_starts=10000
+train_fold2.learning_rate=0.001
+train_fold2.exploration_fraction=0.5
+train_fold2.exploration_initial_eps=0.9
+train_fold2.exploration_final_eps=0.05
+train_fold2.target_update_interval=4096
+train_fold2.tensorboard_log="./tensorboard_logs"

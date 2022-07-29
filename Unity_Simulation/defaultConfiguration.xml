@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+	<PhysicsWorld>
+		<TimeScale>1.0</TimeScale>
+		<ClothUsesGpuSimulation>true</ClothUsesGpuSimulation>
+		<GravityMultiplier>0.25</GravityMultiplier>
+		<!-- How many timesteps to divide the delta time in for more stable simulation -->
+		<DeltaTimeDivisor>20</DeltaTimeDivisor>
+		<!-- The integration type is only applicable for Cpu simulation -->
+		<IntegrationType>Verlet</IntegrationType>
+		<ElasticSpringConstant>5400</ElasticSpringConstant>
+		<ShearSpringConstant>3000</ShearSpringConstant>
+		<BendSpringConstant>2400</BendSpringConstant>
+		<SpringInverseMass>0.125</SpringInverseMass>
+		<SpringDamping>38</SpringDamping>
+		<!-- How much relative velocity is kept after collision -->
+		<RestitutionConstant>0.025</RestitutionConstant>
+		<!-- Friction on surfaces due to collision -->
+		<FrictionConstant>0.95</FrictionConstant>
+		<MeshBasedElasticSpringConstant>2400</MeshBasedElasticSpringConstant>
+		<MeshBasedShearSpringConstant>2400</MeshBasedShearSpringConstant>
+	</PhysicsWorld>
+</Configuration>
